@@ -1,0 +1,5 @@
+https://www.tutorialspoint.com/vba/vba_macro_comments.htm
+
+https://www.ablebits.com/office-addins-blog/2013/12/06/add-run-vba-macro-excel/
+
+https://www.ablebits.com/office-addins-blog/2017/11/08/merge-multiple-excel-files-into-one/
