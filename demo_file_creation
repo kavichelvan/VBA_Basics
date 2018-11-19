@@ -1,0 +1,69 @@
+Private Sub CommandButton1_Click()
+    
+    Dim tot_rows_in_user_sheet As Integer
+    tot_rows_in_user_sheet = Sheet1.Cells(2, 2)
+    
+    Dim tot_rows_in_ps_sheet As Integer
+    tot_rows_in_ps_sheet = Sheet1.Cells(3, 2)
+    
+    Dim requested_Effective_date As String
+    requested_Effective_date = Sheet1.Cells(4, 2)
+    
+    Dim date_submitted As String
+    date_submitted = Sheet1.Cells(5, 2)
+    
+    Dim new_sheet As Worksheet
+    Set new_sheet = Worksheets.Add
+    
+    
+    Sheet3.Activate
+    Sheet2.Activate
+    
+    
+    For i = 1 To tot_rows_in_user_sheet
+        For j = 1 To tot_rows_in_ps_sheet
+            For k = 1 To 18
+                If k = 1 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = i * (i - 1) + j
+                ElseIf k = 2 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "Internal"
+                ElseIf k = 3 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "New"
+                ElseIf k = 4 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = requested_Effective_date
+                ElseIf k = 5 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = Trim(Sheet3.Cells(j, 3)) 'Role
+                ElseIf k = 6 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = Trim(Sheet2.Cells(i, 1)) 'id
+                ElseIf k = 7 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = Trim(Sheet2.Cells(i, 2)) 'First Name
+                ElseIf k = 8 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = Trim(Sheet2.Cells(i, 3)) 'last Name
+                ElseIf k = 9 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = Trim(Sheet2.Cells(i, 4)) 'e-mail
+                ElseIf k = 10 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = Trim(Sheet3.Cells(j, 1)) 'PS id
+                ElseIf k = 11 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = Trim(Sheet3.Cells(j, 2)) 'PS name
+                ElseIf k = 12 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "Yes"
+                ElseIf k = 13 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "(submitter id)
+                ElseIf k = 14 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "submitter full name"
+                ElseIf k = 15 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "submitter Id"
+                ElseIf k = 16 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = ""
+                ElseIf k = 17 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "Ready to Submit"
+                ElseIf k = 18 Then
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = date_submitted
+                End If
+            Next k
+        Next j
+    Next i
+    
+    
+End Sub
+
