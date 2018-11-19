@@ -6,6 +6,9 @@ Private Sub CommandButton1_Click()
     Dim tot_rows_in_ps_sheet As Integer
     tot_rows_in_ps_sheet = Sheet1.Cells(3, 2)
     
+    Dim count As Integer
+    count = 0
+    
     Dim requested_Effective_date As String
     requested_Effective_date = Sheet1.Cells(4, 2)
     
@@ -19,12 +22,34 @@ Private Sub CommandButton1_Click()
     Sheet3.Activate
     Sheet2.Activate
     
-    
+  
     For i = 1 To tot_rows_in_user_sheet
         For j = 1 To tot_rows_in_ps_sheet
+        
+        If i = 1 And J = 1 Then
+            new_sheet.Cells(1, 1).Value = "S_No"
+            new_sheet.Cells(1, 2).Value = "User_Type"
+            new_sheet.Cells(1, 3).Value = "Request_Type"
+            new_sheet.Cells(1, 4).Value = "Requested_Effective_Date"
+            new_sheet.Cells(1, 5).Value = "Security_Access_Role"
+            new_sheet.Cells(1, 6).Value = "Aetna_ID_to_get_Access"
+            new_sheet.Cells(1, 7).Value = "User_First_Name"
+            new_sheet.Cells(1, 8).Value = "User_Last_Name"
+            new_sheet.Cells(1, 9).Value = "User_Email_Address"
+            new_sheet.Cells(1, 10).Value = "Plan_Sponsor_PSUID"
+            new_sheet.Cells(1, 11).Value = "Plan_Sponsor"
+            new_sheet.Cells(1, 12).Value = "Request_for_Customer_Access"
+            new_sheet.Cells(1, 13).Value = "Submitter_Aetna_ID "
+            new_sheet.Cells(1, 14).Value = "Submitter_Name"
+            new_sheet.Cells(1, 15).Value = "ubmitter_Email_Address"
+            new_sheet.Cells(1, 16).Value = "Welcome_CC_Recipient"
+            new_sheet.Cells(1, 17).Value = "Request_Status"
+            new_sheet.Cells(1, 18).Value = "Date_Submitted"
+         End If
+      count = count + 1
             For k = 1 To 18
                 If k = 1 Then
-                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = i * (i - 1) + j
+                    new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = count
                 ElseIf k = 2 Then
                     new_sheet.Cells(((i - 1) * 8) + j + 1, k).Value = "Internal"
                 ElseIf k = 3 Then
@@ -64,6 +89,5 @@ Private Sub CommandButton1_Click()
         Next j
     Next i
     
-    
-End Sub
+ End Sub
 
